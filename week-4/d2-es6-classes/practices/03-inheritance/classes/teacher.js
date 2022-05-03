@@ -1,5 +1,15 @@
 const Person = require('./person');
 
+class Teacher extends Person {
+  constructor(firstName, lastName, subject, yearsOfExperience){
+    super(firstName, lastName);
+    this.subject = subject;
+    this.yearsOfExperience = yearsOfExperience;
+  }
+  static combinedYearsOfExperience(teachers) {
+    return teachers.reduce((count, teacher) =>  count + teacher.yearsOfExperience, 0)
+  }
+}
 // Your code here
 
 /****************************************************************************/
