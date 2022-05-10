@@ -35,3 +35,5 @@ const nemo = new Fish('Nemo');
 /********************************* Scenario 5 *********************************/
 // const swim = nemo.swim;
 // swim(); // ?
+const swim = nemo.swim();
+nemo.swim
