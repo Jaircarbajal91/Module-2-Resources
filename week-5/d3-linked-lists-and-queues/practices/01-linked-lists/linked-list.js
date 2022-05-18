@@ -7,15 +7,30 @@ class LinkedListNode {
 
 class LinkedList {
   constructor() {
-    // Your code here
+    this.head = null;
+    this.tail = undefined;
+    this.length = 0;
   }
 
   addToHead(val) {
-    // Your code here
+    const node = new LinkedListNode(val);
+    node.next = this.head;
+    this.head = node;
+    this.length++;
   }
 
   addToTail(val) {
-    // Your code here
+    const node = new LinkedListNode(val);
+    this.length++;
+    if (!this.head) {
+      this.head = node;
+      return;
+    }
+    let curr = this.head
+    while(curr.next) {
+      curr = curr.next;
+    }
+    curr.next = node;
   }
 
   // You can use this function to help debug

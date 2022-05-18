@@ -8,22 +8,52 @@ Consult documentation on how to utilize the following methods:
 /* Base 10 to base 2 */
 function decimalToBinary(blob) {
   // Your code here
+  let outcome = "";
+  while (blob >= 2){
+    let temp = blob % 2;
+    outcome = temp.toString() + outcome
+    blob = blob - temp;
+    blob = blob / 2
+  }
+  outcome = blob.toString() + outcome
+  return "0b" + outcome
 }
 
 /* Base 10 to base 16 */
 function decimalToHexadecimal(blob) {
   // Your code here
+  let outcome = "";
+  let index = ['a', 'b', 'c', 'd', 'e', 'f'];
+  while (blob >= 16) {
+    let temp = blob % 16;
+    let temp2 = temp
+    if (temp >= 10) {
+      temp = index[temp - 10]
+    }
+    outcome = temp.toString() + outcome
+    blob = blob - temp2;
+    blob = blob / 16
+  }
+  if (blob >= 10) {
+    blob = index[blob - 10]
+  }
+  outcome = blob.toString() + outcome
+  return '0x' + outcome
 }
+// return `0x${blob.toString(16)}`
+
 
 /* Base 2 to base 10 */
 function binaryToDecimal(blob) {
-  // Your code here
+  blob = blob.substring(2);
+  return parseInt(blob, 2)
 }
 
 /* Base 16 to base 10 */
 function hexadecimalToDecimal(blob) {
-  // Your code here
+  return parseInt(blob, 16)
 }
+
 
 // console.log('Decimal to binary:')
 // console.log(decimalToBinary(13))  // '0b1101'
